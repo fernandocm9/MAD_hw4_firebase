@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'profile_screen.dart';
+import 'settings_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -43,9 +45,26 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
+              title: Text('Message Board'),
+              onTap: () {
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (context) => HomePage(),
+                //   ),
+                // );
+                Navigator.of(context).pop();
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
               title: Text('Profile'),
               onTap: () {
-                // Navigate to profile
+                Navigator.of(context).pop(); 
+                Future.delayed(const Duration(milliseconds: 300), () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const ProfileScreen()),
+                  );
+                });
               },
             ),
             ListTile(
@@ -53,13 +72,6 @@ class _HomePageState extends State<HomePage> {
               title: Text('Settings'),
               onTap: () {
                 // Navigate to settings
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Logout'),
-              onTap: () {
-                _signOut();
                 Navigator.of(context).pop();
               },
             ),
