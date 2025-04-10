@@ -47,11 +47,6 @@ class _HomePageState extends State<HomePage> {
               leading: Icon(Icons.account_circle),
               title: Text('Message Board'),
               onTap: () {
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context) => HomePage(),
-                //   ),
-                // );
                 Navigator.of(context).pop();
               },
             ),
@@ -68,11 +63,15 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
               onTap: () {
-                // Navigate to settings
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(); 
+                Future.delayed(const Duration(milliseconds: 300), () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const SettingsScreen()),
+                  );
+                });
               },
             ),
           ]
