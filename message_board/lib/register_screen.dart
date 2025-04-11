@@ -30,7 +30,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     try {
-      // Create user in Firebase Auth
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text,
@@ -39,7 +38,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
       final user = credential.user!;
       final userDoc = FirebaseFirestore.instance.collection('users').doc(user.uid);
 
-      // Add user data to Firestore
       await userDoc.set({
         'user_id': user.uid,
         'first_name': _firstNameController.text.trim(),
@@ -49,8 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         'registration_datetime': FieldValue.serverTimestamp(),
       });
 
-      // Go to home screen
-      Navigator.of(context).pop(); // optional: replace with push to HomePage
+      Navigator.of(context).pop(); 
     } on FirebaseAuthException catch (e) {
       setState(() => _error = e.message);
     } catch (e) {

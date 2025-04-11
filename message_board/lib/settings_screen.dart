@@ -76,9 +76,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: ListView(
           children: [
             Text('Signed in as: $userEmail', style: const TextStyle(fontSize: 16)),
-            const SizedBox(height: 24),
-            const Text('Change Password', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
+            SizedBox(height: 24),
+            Text('Change Password', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            SizedBox(height: 12),
             Form(
               key: _formKey,
               child: Column(
@@ -101,15 +101,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     validator: (value) =>
                         value != null && value.length >= 6 ? null : 'Minimum 6 characters',
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   _isLoading
-                      ? const CircularProgressIndicator()
+                      ? CircularProgressIndicator()
                       : ElevatedButton(
                           onPressed: _changePassword,
                           child: const Text('Update Password'),
                         ),
                   if (_statusMessage != null) ...[
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10),
                     Text(
                       _statusMessage!,
                       style: TextStyle(
@@ -120,7 +120,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
             ),
-            const Divider(height: 40),
+            Divider(height: 40),
             ElevatedButton.icon(
               onPressed: _signOut,
               icon: const Icon(Icons.logout),

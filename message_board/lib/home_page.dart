@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'profile_screen.dart';
 import 'settings_screen.dart';
+import 'chat_room_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.account_circle),
+              leading: Icon(Icons.home),
               title: Text('Message Board'),
               onTap: () {
                 Navigator.of(context).pop();
@@ -82,54 +83,62 @@ class _HomePageState extends State<HomePage> {
         children: [
           GestureDetector(
             onTap: () {
-              // Navigate to the selected room
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const ChatRoomScreen(roomName: 'Games'),
+                ),
+              );
             },
             child: Container(
-              child: Text('Games', style: TextStyle(fontSize: 24 ,color: Colors.white)),
               padding: const EdgeInsets.all(20),
               alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.red,
-              ),
+              decoration: const BoxDecoration(color: Colors.red),
+              child: const Text('Games', style: TextStyle(fontSize: 24, color: Colors.white)),
             ),
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the selected room
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const ChatRoomScreen(roomName: 'Business'),
+                ),
+              );
             },
             child: Container(
-              child: Text('Business', style: TextStyle(fontSize: 24 ,color: Colors.white)),
               padding: const EdgeInsets.all(20),
               alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
+              decoration: const BoxDecoration(color: Colors.blue),
+              child: const Text('Business', style: TextStyle(fontSize: 24, color: Colors.white)),
             ),
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the selected room
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const ChatRoomScreen(roomName: 'Public Health'),
+                ),
+              );
             },
             child: Container(
-              child: Text('Public Health', style: TextStyle(fontSize: 24 ,color: Colors.white)),
               padding: const EdgeInsets.all(20),
               alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.pink,
-              ),
+              decoration: const BoxDecoration(color: Colors.pink),
+              child: const Text('Public Health', style: TextStyle(fontSize: 24, color: Colors.white)),
             ),
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the selected room
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const ChatRoomScreen(roomName: 'Study'),
+                ),
+              );
             },
             child: Container(
-              child: Text('Study', style: TextStyle(fontSize: 24 ,color: Colors.white)),
               padding: const EdgeInsets.all(20),
               alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.purple,
-              ),
+              decoration: const BoxDecoration(color: Colors.purple),
+              child: const Text('Study', style: TextStyle(fontSize: 24, color: Colors.white)),
             ),
           ),
         ]
